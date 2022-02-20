@@ -22,7 +22,7 @@ function breaker(interval){
                     interval = setInterval(() => {
                         breaker(interval);
                     }, 1000);
-                }, 2500);
+                }, 1700);
             }
         }
     }
