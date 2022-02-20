@@ -1,7 +1,7 @@
 let netflixStoppedOn = '';
 
-let interval = setInterval(() => {
-    breaker(this);
+let mainInterval = setInterval(() => {
+    breaker(mainInterval);
 }, 1000);
 
 function breaker(interval){
@@ -19,8 +19,8 @@ function breaker(interval){
                 clearInterval(interval);
                 setTimeout(() => {
                     video.play();
-                    interval = setInterval(() => {
-                        breaker(interval);
+                    mainInterval = setInterval(() => {
+                        breaker(mainInterval);
                     }, 1000);
                 }, 1700);
             }
