@@ -21,19 +21,20 @@ function breaker(interval){
         let subtitle = '';
         for(let i = 0; i < subtitleSpans.length; i++) {
             subtitle += subtitleSpans[i].innerText;
-            if(subtitle.length >= 45 && subtitle !== netflixStoppedOn){
-                const video = document.getElementsByTagName("video")[0];
-                video.pause();
-                netflixStoppedOn = subtitle;
+        }
+        
+        if(subtitle.length >= 45 && subtitle !== netflixStoppedOn){
+            const video = document.getElementsByTagName("video")[0];
+            video.pause();
+            netflixStoppedOn = subtitle;
 
-                clearInterval(interval);
-                setTimeout(() => {
-                    video.play();
-                    mainInterval = setInterval(() => {
-                        breaker(mainInterval);
-                    }, 1000);
-                }, 1700);
-            }
+            clearInterval(interval);
+            setTimeout(() => {
+                video.play();
+                mainInterval = setInterval(() => {
+                    breaker(mainInterval);
+                }, 1000);
+            }, 1700);
         }
     }
 }
